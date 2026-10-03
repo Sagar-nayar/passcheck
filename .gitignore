@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Virtual environment
+venv/
+.venv/
+
+# Secrets - never commit these
+.env
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Large wordlists (download separately)
+*.txt
+!requirements.txt
