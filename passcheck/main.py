@@ -59,6 +59,31 @@ def get_feedback(password: str) -> list[str]:
 
     return feedback
 
+def load_common_passwords(path: str) -> set[str]:
+    """Read a wordlist file and return its passwords as a set.
+
+    One password per line. Remove the newline from each one.
+    """
+    common_passwords=set()
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            common_passwords.add(line.strip())
+
+    return common_passwords
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def main() -> None:
     """Ask the user for a password, then print its score, rating, and tips."""
