@@ -72,6 +72,13 @@ def load_common_passwords(path: str) -> set[str]:
     return common_passwords
 
 
+def is_common(password: str, common: set[str]) -> bool:
+    """Return True if the password is in the common-passwords set.
+
+    The check ignores upper/lower case: "PASSWORD" counts as "password".
+    """
+  
+    return password.lower() in common
 
 
 
@@ -92,6 +99,10 @@ def main() -> None:
     score = score_password(password)
     rating = get_rating(score)
     feedback = get_feedback(password)
+    common = load_common_passwords("data/common.txt")
+    if is_common(password, common):
+        print("⚠ This password has been found in data leaks")
+        rating = "Weak"
 
     print(f"Score: {score}/6")
     print(f"Rating: {rating}")
